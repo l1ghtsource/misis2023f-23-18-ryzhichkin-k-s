@@ -11,8 +11,7 @@ int main() {
         bool flag = true;
         for (int i = 0; i < k; i++) {
             char temp = s[i];
-            int j = i + k;
-            while (j < n) {
+            for (int j = i + k; i < n; i += k) {
                 if (temp == '1' and s[j] == '0') {
                     std::cout << "NO" << std::endl;
                     flag = false;
@@ -26,7 +25,6 @@ int main() {
                 else if (temp == '?' and s[j] != '?') {
                     temp = s[j];
                 }
-                j += k;
             }
             s[i] = temp;
         }
