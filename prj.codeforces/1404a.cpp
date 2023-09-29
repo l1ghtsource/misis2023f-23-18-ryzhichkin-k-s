@@ -32,10 +32,10 @@ int main() {
             int zero_counter = 0;
             int uno_counter = 0;
             for (int i = 0; i < k; i++) {
-                if (s[i] == '0') {
+                if (s[i] == '1') {
                     uno_counter++;
                 }
-                else if (s[i] == '1') {
+                else if (s[i] == '0') {
                     zero_counter++;
                 }
             }
