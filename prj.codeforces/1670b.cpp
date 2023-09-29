@@ -2,7 +2,7 @@
 #include <vector>
 
 int main() {
-    std::ios::sync_with_stdio(false); // ñïàñëî, áåç ýòîãî TL íà 35-ì òåñòå
+    std::ios::sync_with_stdio(false); // Ã±Ã¯Ã Ã±Ã«Ã®, Ã¡Ã¥Ã§ Ã½Ã²Ã®Ã£Ã® TL Ã­Ã  35-Ã¬ Ã²Ã¥Ã±Ã²Ã¥
     int t = 0;
     std::cin >> t;
     for (int i = 0; i < t; i++) {
