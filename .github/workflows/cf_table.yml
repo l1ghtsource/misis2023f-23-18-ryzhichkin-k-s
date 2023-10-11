@@ -1,1 +1,11 @@
+name: main_workflow_for_cf
 
+on:
+  push
+
+permissions:
+  contents: write
+
+jobs:
+  draw-table:
+    uses: rdinit/codeforces-table-generator/.github/workflows/generate_md.yaml@v1
