@@ -2,35 +2,35 @@
 #include <vector>
 
 int main() {
-	int t = 0; // ÍÓÎË˜ÂÒÚ‚Ó Ì‡·ÓÓ‚ ‚ıÓ‰Ì˚ı ‰‡ÌÌ˚ı
-	std::cin >> t;
-	for (int i = 0; i < t; i++) {
-		int n = 0; // ÍÓÎË˜ÂÒÚ‚Ó ‡ÛÌ‰Ó‚
-		int x = 0; // ÍÓÎË˜ÂÒÚ‚Ó ÒÎÂ‰Û˛˘Ëı ÍÓÌÚÂÒÚÓ‚
-		std::cin >> n >> x;
-		std::vector<int> arr(300);
-		for (int i = 1; i <= n + x; i++) {
-			arr[i] = 0;
-		}
-		for (int j = 0; j < n; j++) {
-			int a = 0; // ÏÂÒÚÓ ‚ j-Ï ‡ÛÌ‰Â
-			std::cin >> a;
-			arr[a] = 1;
-		}
-		int ans = 0;
-		for (int k = n + x; k > 0; k--) {
-			int v = 0;
-			for (int r = 1; r <= k; r++) {
-				if (arr[r] == 0) {
-					v++;
-				}
-			}
-			if (v <= x) {
-				ans = k;
-				break;
-			}
-		}
-		std::cout << ans << std::endl;
-	}
-	return 0;
+  int t = 0; // –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ –Ω–∞–±–æ—Ä–æ–≤ –≤—Ö–æ–¥–Ω—ã—Ö –¥–∞–Ω–Ω—ã—Ö
+  std::cin >> t;
+  for (int i = 0; i < t; i++) {
+    int n = 0; // –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ —Ä–∞—É–Ω–¥–æ–≤
+    int x = 0; // –ø–æ–ª–æ–∂–∏—Ç–µ–ª—å–Ω–æ–µ —Ü–µ–ª–æ–µ —á–∏—Å–ª–æ
+    std::cin >> n >> x;
+    std::vector<int> arr(300);
+    for (int i = 1; i <= n + x; i++) {
+      arr[i] = 0;
+    }
+    for (int j = 0; j < n; j++) {
+      int a = 0; // –º–µ—Å—Ç–æ –≤ j-–º —Ä–∞—É–Ω–¥–µ
+      std::cin >> a;
+      arr[a] = 1;
+    }
+    int ans = 0;
+    for (int k = n + x; k > 0; k--) {
+      int v = 0; // —Ç–∞–∫–æ–µ —á–∏—Å–ª–æ, —á—Ç–æ –±—É–¥–µ—Ç –≤–æ–∑–º–æ–∂–Ω–æ —Å–æ–±—Ä–∞—Ç—å –≤—Å–µ –º–µ—Å—Ç–∞ –æ—Ç 1 –¥–æ v —Å–ø—É—Å—Ç—è x —Å–ª–µ–¥—É—é—â–∏—Ö –∫–æ–Ω—Ç–µ—Å—Ç–æ–≤
+      for (int r = 1; r <= k; r++) {
+        if (arr[r] == 0) {
+          v++;
+        }
+      }
+      if (v <= x) {
+        ans = k;
+        break;
+      }
+    }
+    std::cout << ans << std::endl;
+  }
+  return 0;
 }
