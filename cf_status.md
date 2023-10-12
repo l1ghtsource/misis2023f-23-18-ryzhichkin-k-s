@@ -2,8 +2,8 @@
 |-|
 Obligatory tasks tried: 19/22 (86.3%)
 Obligatory tasks solved: 19/22 (86.3%)
-Unobligatory tasks tried: 11/12 (91.6%)
-Unobligatory tasks solved: 11/12 (91.6%)
+Unobligatory tasks tried: 12/12 (100.0%)
+Unobligatory tasks solved: 12/12 (100.0%)
 
 Task Id | Status | Obligate |
 |---|---|---|
@@ -29,6 +29,7 @@ Task Id | Status | Obligate |
 |1734b|OK|YES|
 |136b|OK|YES|
 || missed |YES|
+|1339a|OK|NO|
 |1690b|TIME_LIMIT_EXCEEDED|NO|
 |1493a|OK|NO|
 |1438a|OK|NO|
