@@ -2,17 +2,40 @@
 #include <cmath>
 
 void solve() {
-	unsigned long long n = 0;
-	unsigned long long k = 0;
-	std::cin >> n >> k;
-	unsigned long long ans = ((unsigned long long)std::pow(2, k % 6) * n) % 9;
-	std::cout << ans << std::endl;
+  unsigned long long n = 0; // число
+  unsigned long long k = 0; // количество операций
+  std::cin >> n >> k;
+  unsigned long long ans = ((unsigned long long)std::pow(2, k % 6) * n) % 9;
+  std::cout << ans << std::endl;
 }
 
+/*
+Будем пользоваться тем, что ответ просят вывести по модулю 9.
+Очевидно, n ≡ S(n) (mod 9).
+Тогда n + S(n) ≡ 2n (mod 9).
+Значит про S(n) можно просто забыть.
+На каждом шаге n + S(n) --> n + S(n) + S(n + S(n)) ≡ 2n + S(2n) ≡ 4n (mod 9).
+Т.е на каждом шаге (2^t)n --> (2^(t + 1))n.
+Значит, после k шагов результат будет (2^k)n mod 9.
+Поскольку 2^k может быть довольно большим, можно ввести следующую оптимизацию: k --> k % 6.
+Обоснование: 2^k имеет цикл длины 6 по модулю 9.
+Действительно,
+k 2^k 2^k mod 9
+0  1      1
+1  2      2
+2  4      4
+3  8      8
+4  16     7
+5  32     5
+-конец цикла-
+6  64     1
+...
+*/
+
 int main() {
-	int t = 0;
-	std::cin >> t;
-	while (t--) {
-		solve();
-	}
+  int t = 0; // количество наборов входных данных
+  std::cin >> t;
+  while (t--) {
+    solve();
+  }
 }
