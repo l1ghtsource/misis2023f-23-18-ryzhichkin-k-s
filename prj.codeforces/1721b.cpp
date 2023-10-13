@@ -14,7 +14,7 @@ int main() {
       std::cout << n + m - 2 << std::endl; // (n - 1) + (m - 1)
     }
     else {
-      std::cout << -1 << std::endl; // если лазер касается хотя одной стены
+      std::cout << -1 << std::endl; // если лазер касается > 1 стены
     }
   }
   return 0;
