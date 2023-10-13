@@ -2,11 +2,16 @@
 #include <vector>
 
 int main() {
-  int t, b, c, h, curr_bread, curr_others, counter;
+  int t = 0;
+  int b = 0;
+  int c = 0;
+  int h = 0;
+  int curr_bread = 0;
+  int curr_others = 0;
+  int counter = 0;
   std::vector<int> breads;
   std::vector<int> others;
   std::cin >> t;
-  counter = 0;
   for (int i = 0; i < t; i++) {
     std::cin >> b >> c >> h;
     breads.push_back(b);
