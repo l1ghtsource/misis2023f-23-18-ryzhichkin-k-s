@@ -3,7 +3,11 @@
 #include <cmath>
 
 int main() {
-  int t, n, a, q, ans;
+  int t = 0;
+  int n = 0;
+  int a = 0;
+  int q = 0;
+  int ans = 0;
   std::vector<int> prearr;
   std::vector<int> p;
   std::vector<std::vector<int>> arr;
