@@ -1,9 +1,9 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+
+// ставим факела по боковым стенкам пирамиды
 
 void solve() {
-  int n = 0;
+  int n = 0; // количество этажей в пирамиде
   std::cin >> n;
   if (n == 1) {
     std::cout << 1 << std::endl;
@@ -26,7 +26,7 @@ void solve() {
 }
 
 int main() {
-  int t = 0;
+  int t = 0; // количество наборов входных данных
   std::cin >> t;
   while (t--) {
     solve();
