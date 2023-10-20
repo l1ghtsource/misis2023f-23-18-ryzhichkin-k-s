@@ -84,10 +84,16 @@ void solve() {
       y_ans_2 = y_2 - d;
     }
     else if (x_1 > x_2 && y_2 < y_1) {
-      // не успел :(
+      x_ans_1 = x_1;
+      y_ans_1 = y_1 + d;
+      x_ans_2 = x_2;
+      y_ans_2 = y_2 + d;
     }
     else if (x_1 < x_2 && y_2 < y_1) {
-      // не успел :(
+      x_ans_1 = x_1;
+      y_ans_1 = y_1 + d;
+      x_ans_2 = x_2;
+      y_ans_2 = y_2 + d;
     }
   }
   std::vector<std::vector<char>> a(n, std::vector<char>(n, '.'));
