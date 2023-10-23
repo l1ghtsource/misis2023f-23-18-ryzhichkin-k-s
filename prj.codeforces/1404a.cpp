@@ -12,17 +12,17 @@ int main() {
     for (int i = 0; i < k; i++) {
       char temp = s[i];
       for (int j = i + k; i < n; i += k) {
-        if (temp == '1' and s[j] == '0') {
+        if (temp == '1' && s[j] == '0') {
           std::cout << "NO" << std::endl;
           flag = false;
           break;
         }
-        else if (temp == '0' and s[j] == '1') {
+        else if (temp == '0' && s[j] == '1') {
           std::cout << "NO" << std::endl;
           flag = false;
           break;
         }
-        else if (temp == '?' and s[j] != '?') {
+        else if (temp == '?' && s[j] != '?') {
           temp = s[j];
         }
       }

@@ -1,7 +1,6 @@
 #include <iostream>
 
 int main() {
-  int n, k, f, t, p, m;
   int n = 0; // кол-во ресторанов
   int k = 0; // кол-во единиц времени
   int f = 0; // безымянная характеристика
