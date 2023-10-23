@@ -46,7 +46,7 @@ void solve() {
     }
   }
   else if (x_1 == x_2) {
-    if (y_1 - 1 < 0) {
+    if (x_1 - 1 < 0) {
       y_ans_1 = y_1;
       y_ans_2 = y_2;
       x_ans_1 = x_1 + 1;
