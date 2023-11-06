@@ -271,6 +271,11 @@ int main() {
   std::cout << z3 + alpha << std::endl;
   std::cout << z4 - alpha << std::endl;
 
+  std::cout << alpha * z1 << std::endl;
+  std::cout << alpha / z2 << std::endl;
+  std::cout << alpha + z3 << std::endl;
+  std::cout << alpha - z4 << std::endl;
+
   std::cout << degree(z1, deg) << std::endl;
 
   for (Complex& z : roots) {
