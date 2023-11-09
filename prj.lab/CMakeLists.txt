@@ -1,2 +1,1 @@
-add_executable(complex-sample complex-sample.cpp)
-
+add_executable(complex complex.cpp)
