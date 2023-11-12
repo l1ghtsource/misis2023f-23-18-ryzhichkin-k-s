@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 
-// runtime error на cf по неведомым причинам
-
 void solve() {
   int n = 0;
   std::cin >> n;

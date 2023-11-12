@@ -18,7 +18,7 @@ bool check(int num) {
 }
 
 int main() {
-  int y;
+  int y = 0;
   std::cin >> y;
   y++;
   while (check(y)) {

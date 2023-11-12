@@ -3,7 +3,7 @@
 #include <vector>
 
 void solve() {
-  int n;
+  int n = 0;
   std::cin >> n;
   std::string s;
   std::cin >> s;

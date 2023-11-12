@@ -2,22 +2,22 @@
 #include <vector>
 
 void solve() {
-  int n = 0;
+  int t(0);
+  std::vector<int> a(105);
+  int n(0);
   std::cin >> n;
-  std::vector<int> level(n);
   for (int i = 0; i < n; ++i) {
-    std::cin >> level[i];
+    std::cin >> a[i];
   }
-  int left_last_uno = 0;
-  int right_first_uno = n - 1;
-  while (left_last_uno < n - 1 && level[left_last_uno + 1] != 0) {
-    left_last_uno += 1;
+  int left(0);
+  int right(n - 1);
+  while (a[left + 1] == 1 && left < right) {
+    left++;
   }
-  while (right_first_uno > 1 && level[right_first_uno - 1] != 0) {
-    right_first_uno -= 1;
+  while (a[right - 1] == 1 && right > left) {
+    right--;
   }
-  int total = right_first_uno - left_last_uno;
-  std::cout << total << std::endl;
+  std::cout << right - left << std::endl;
 }
 
 int main() {
@@ -28,3 +28,4 @@ int main() {
   }
   return 0;
 }
+
