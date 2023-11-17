@@ -81,8 +81,8 @@ bool is_equal_complex(const Complex& lhs, const Complex& rhs) {
 }
 
 bool is_equal_vector(const std::vector<Complex>& lhs, const std::vector<Complex>& rhs) {
-  int size_lhs = lhs.size();
-  int size_rhs = rhs.size();
+  int size_lhs = (int)lhs.size();
+  int size_rhs = (int)rhs.size();
   if (size_lhs != size_rhs) {
     return false;
   }
@@ -313,7 +313,7 @@ void test_output(const Complex& operand, const double& ans, const double& correc
 int main() {
   std::vector<std::string> test_data_parse = { "{1, 2.3}", "{2.2, 3}", "{4, 0}", "{0, 4}", "{0, 0}", "{0}", "{5}", "{8.9, 9", "9", "8.9, 9", "8.9, 9}" };
   std::vector<Complex> complex_test_data = { {1, 2.3}, {2.2, 3}, {4, 0}, {0, 4}, {0, 0} };
-  int parse_num_tests = test_data_parse.size();
+  int parse_num_tests = (int)test_data_parse.size();
 
   std::vector<Complex> complex_nums;
 
