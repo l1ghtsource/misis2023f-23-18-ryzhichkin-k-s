@@ -41,11 +41,11 @@ private:
   }
 
   void simplify() {
-    int64_t gcd_ = gcd(num_, den_);
     if (den_ < 0) {
       num_ *= (-1);
       den_ *= (-1);
     }
+    int64_t gcd_ = gcd(std::abs(num_), std::abs(den_));
     num_ /= gcd_;
     den_ /= gcd_;
   }
