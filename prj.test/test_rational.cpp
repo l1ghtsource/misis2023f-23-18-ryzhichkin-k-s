@@ -4,7 +4,7 @@
 #include <rational/rational.cpp>
 #include "doctest.h"
 
-TEST_CASE("rational ctor") {
+TEST_CASE("rational ctor and simplifier") {
   Rational r_def;
   CHECK(0 == r_def.num());
   CHECK(1 == r_def.den());
@@ -30,4 +30,22 @@ TEST_CASE("rational ctor") {
   CHECK(3 == r_4.den());
 
   CHECK_THROWS(Rational(1, 0));
+}
+
+TEST_CASE("operators") {
+  Rational r_1{ 2, -6 };
+  Rational r_2{ 7, 28 };
+  Rational r_3{ 0, 128 };
+
+  Rational sum{ -1, 12 };
+  Rational difference{ -7, 12 };
+  Rational product{ -1, 12 };
+  Rational quotient{ -4, 3 };
+
+  CHECK(sum == (r_1 + r_2));
+  CHECK(difference == (r_1 - r_2));
+  CHECK(product == (r_1 * r_2));
+  CHECK(quotient == (r_1 / r_2));
+
+  CHECK_THROWS(r_1 / r_3);
 }
