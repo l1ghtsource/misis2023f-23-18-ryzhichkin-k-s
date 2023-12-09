@@ -68,7 +68,7 @@ Rational& Rational::operator*=(const int64_t rhs) {
 
 Rational& Rational::operator/=(const Rational& rhs) {
   if (rhs.den_ == 0) {
-    throw std::string("Division by zero");
+    throw std::invalid_argument("Division by zero");
   }
   num_ = num_ * rhs.den_;
   den_ = den_ * rhs.num_;
@@ -78,7 +78,7 @@ Rational& Rational::operator/=(const Rational& rhs) {
 
 Rational& Rational::operator/=(const int64_t rhs) {
   if (rhs == 0) {
-    throw std::string("Division by zero");
+    throw std::invalid_argument("Division by zero");
   }
   num_ = num_;
   den_ = den_ * rhs;
@@ -98,6 +98,12 @@ Rational operator+(const Rational& lhs, const int64_t rhs) {
   return sum;
 };
 
+Rational operator+(const int64_t lhs, Rational& rhs) {
+  Rational sum(rhs);
+  sum += lhs;
+  return sum;
+};
+
 Rational operator-(const Rational& lhs, const Rational& rhs) {
   Rational res(lhs);
   res -= rhs;
@@ -107,6 +113,12 @@ Rational operator-(const Rational& lhs, const Rational& rhs) {
 Rational operator-(const Rational& lhs, const int64_t rhs) {
   Rational res(lhs);
   res -= rhs;
+  return res;
+};
+
+Rational operator-(const int64_t lhs, Rational& rhs) {
+  Rational res(-rhs);
+  res += lhs;
   return res;
 };
 
@@ -122,6 +134,12 @@ Rational operator*(const Rational& lhs, const int64_t rhs) {
   return res;
 }
 
+Rational operator*(const int64_t lhs, Rational& rhs) {
+  Rational res(rhs);
+  res *= lhs;
+  return res;
+}
+
 Rational operator/(const Rational& lhs, const Rational& rhs) {
   Rational res(lhs);
   res /= rhs;
@@ -131,6 +149,12 @@ Rational operator/(const Rational& lhs, const Rational& rhs) {
 Rational operator/(const Rational& lhs, const int64_t rhs) {
   Rational res(lhs);
   res /= rhs;
+  return res;
+}
+
+Rational operator/(const int64_t lhs, Rational& rhs) {
+  Rational res{ rhs.den(), rhs.num() };
+  res *= lhs;
   return res;
 }
 
