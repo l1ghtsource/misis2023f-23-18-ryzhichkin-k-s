@@ -37,15 +37,33 @@ TEST_CASE("operators") {
   Rational r_2{ 7, 28 };
   Rational r_3{ 0, 128 };
 
+  int64_t a = 1;
+  int64_t b = 2;
+
   Rational sum{ -1, 12 };
   Rational difference{ -7, 12 };
   Rational product{ -1, 12 };
   Rational quotient{ -4, 3 };
 
+  Rational sum_2{ 2, 3 };
+  Rational difference_2{ -4, 3 };
+  Rational difference_3{ 4, 3 };
+  Rational product_2{ -2, 3 };
+  Rational quotient_2{ -1, 6 };
+  Rational quotient_3{ -6, 1 };
+
   CHECK(sum == (r_1 + r_2));
   CHECK(difference == (r_1 - r_2));
   CHECK(product == (r_1 * r_2));
   CHECK(quotient == (r_1 / r_2));
+  CHECK(sum_2 == (a + r_1));
+  CHECK(sum_2 == (r_1 + a));
+  CHECK(difference_2 == (r_1 - a));
+  CHECK(difference_3 == (a - r_1));
+  CHECK(product_2 == (b * r_1));
+  CHECK(product_2 == (r_1 * b));
+  CHECK(quotient_2 == (r_1 / b));
+  CHECK(quotient_3 == (b / r_1));
 
   CHECK_THROWS(r_1 / r_3);
 }
