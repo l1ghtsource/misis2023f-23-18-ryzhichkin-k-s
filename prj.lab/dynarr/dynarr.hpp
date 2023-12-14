@@ -6,7 +6,6 @@
 #include <iostream>
 #include <cstddef>
 
-
 class DynArr {
 public:
   [[nodiscard]] DynArr() = default;
