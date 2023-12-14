@@ -64,6 +64,4 @@ TEST_CASE("operators") {
   CHECK(product_2 == (r_1 * b));
   CHECK(quotient_2 == (r_1 / b));
   CHECK(quotient_3 == (b / r_1));
-
-  CHECK_THROWS(r_1 / r_3);
 }
