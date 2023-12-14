@@ -1,7 +1,7 @@
 ﻿#include <complex/complex.hpp>
 
 bool is_equal(const double& x, const double& y) {
-  return std::fabs(x - y) < 1e-2;
+  return std::fabs(x - y) < 1e-4;
 }
 
 bool is_equal_complex(const Complex& lhs, const Complex& rhs) {
@@ -23,7 +23,7 @@ bool is_equal_vector(const std::vector<Complex>& lhs, const std::vector<Complex>
 }
 
 bool operator==(const Complex& lhs, const Complex& rhs) {
-  return (lhs.re == rhs.re) && (lhs.im == rhs.im);
+  return (is_equal(lhs.re, rhs.re) && is_equal(lhs.im, rhs.im));
 }
 
 bool operator!=(const Complex& lhs, const Complex& rhs) {
@@ -53,6 +53,12 @@ Complex operator+(const Complex& lhs, const double rhs) {
   return sum;
 }
 
+Complex operator+(const double lhs, const Complex& rhs) {
+  Complex sum(rhs);
+  sum += lhs;
+  return sum;
+}
+
 Complex& Complex::operator-=(const double rhs) {
   re += -rhs;
   return *this;
@@ -74,6 +80,12 @@ Complex operator-(const Complex& lhs, const double rhs) {
   Complex result(lhs);
   result -= rhs;
   return result;
+}
+
+Complex operator-(const double lhs, const Complex& rhs) {
+  Complex result(rhs);
+  result -= lhs;
+  return -result;
 }
 
 Complex& Complex::operator*=(const double rhs) {

@@ -1,5 +1,28 @@
 #include <rational/rational.hpp>
 
+Rational::Rational(const int64_t num) {
+  num_ = num;
+  den_ = 1;
+}
+
+Rational::Rational(const int64_t num, const int64_t den) {
+  num_ = num;
+  den_ = den;
+  if (0 == den_) {
+    throw std::invalid_argument("Zero denumenator in Rational ctor");
+  }
+  simplify();
+}
+
+Rational::Rational(const Rational& rhs) {
+  num_ = rhs.num();
+  den_ = rhs.den();
+  if (0 == den_) {
+    throw std::invalid_argument("Zero denumenator in Rational ctor");
+  }
+  simplify();
+}
+
 bool operator==(const Rational& lhs, const Rational& rhs) {
   return (lhs.num() == rhs.num() && lhs.den() == rhs.den());
 }
