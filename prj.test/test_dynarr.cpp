@@ -18,8 +18,8 @@ TEST_CASE("dynarr ctor") {
 TEST_CASE("dynarr op[]") {
   const int size = 5;
   DynArr arr(size);
-  // CHECK_EQ(arr[0], 0);
-  // CHECK_EQ(arr[arr.Size() - 1], 0);
-  // CHECK_THROWS(arr[-1]);
-  // CHECK_THROWS(arr[arr.Size()]);
+  CHECK_EQ(arr[0], 0);
+  CHECK_EQ(arr[arr.Size() - 1], 0);
+  CHECK_THROWS(arr[-1]);
+  CHECK_THROWS(arr[arr.Size()]);
 }
