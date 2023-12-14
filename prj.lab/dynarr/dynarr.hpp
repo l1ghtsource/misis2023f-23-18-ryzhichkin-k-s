@@ -10,12 +10,12 @@ class DynArr {
 public:
   [[nodiscard]] DynArr() = default;
   [[nodiscard]] DynArr(const DynArr&) = default;
-  [[nodiscard]] DynArr(const int size) : size_(size), capacity_(size) {
+  [[nodiscard]] DynArr(const ptrdiff_t size) : size_(size), capacity_(size) {
     if (size <= 0) {
       throw std::invalid_argument("Zero size is not allowed in DynArr ctor");
     }
     else {
-      data_ = new float[size];
+      data_ = new float[size] {0};
     }
   }
 
@@ -23,12 +23,12 @@ public:
 
   [[nodiscard]] DynArr& operator=(const DynArr&) = default;
 
-  [[nodiscard]] int Size() const noexcept { return size_; }
+  [[nodiscard]] ptrdiff_t Size() const noexcept { return size_; }
 
-  void Resize(const int size) { 
+  void Resize(const ptrdiff_t size) {
     if (size > capacity_) {
-      int new_capacity = std::max(size, size * 2);
-      float* new_data = new float[new_capacity];
+      int new_capacity = size * 2;
+      float* new_data = new float[new_capacity] {0};
       for (int i = 0; i < size_; ++i)
         new_data[i] = data_[i];
       delete[] data_;
@@ -38,12 +38,33 @@ public:
     size_ = size;
   }
 
-  [[nodiscard]] float& operator[](const int idx) { return data_[idx]; }
-  [[nodiscard]] const float& operator[](const int idx) const { return data_[idx]; }
+  [[nodiscard]] float& operator[](const ptrdiff_t idx) { 
+    if (idx < 0) {
+      throw std::invalid_argument("Negative index is not allowed in [] operator");
+    }
+    else if (idx >= size_) {
+      throw std::invalid_argument("Index that greater than size is not allowed in [] operator");
+    }
+    else {
+      return data_[idx];
+    }
+  }
+
+  [[nodiscard]] const float& operator[](const ptrdiff_t idx) const {
+    if (idx < 0) {
+      throw std::invalid_argument("Negative index is not allowed in [] operator");
+    }
+    else if (idx >= size_) {
+      throw std::invalid_argument("Index that greater than size is not allowed in [] operator");
+    }
+    else {
+      return data_[idx];
+    }
+  }
 private:
-  int size_ = 0;
-  int capacity_ = 0;
-  float* data_ = 0;
+  ptrdiff_t size_ = 0;
+  ptrdiff_t capacity_ = 0;
+  float* data_ = nullptr;
 };
 
 std::ostream& operator<<(std::ostream& out, DynArr a);
