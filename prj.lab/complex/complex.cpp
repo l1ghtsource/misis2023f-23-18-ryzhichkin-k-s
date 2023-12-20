@@ -176,12 +176,12 @@ std::vector<Complex> root(const Complex& lhs, const int rhs) {
   return roots;
 }
 
-std::ostream& Complex::writeTo(std::ostream& ostrm) const {
+std::ostream& Complex::writeTo(std::ostream& ostrm) const noexcept {
   ostrm << leftBrace << re << separator << " " << im << rightBrace;
   return ostrm;
 }
 
-std::istream& Complex::readFrom(std::istream& istrm) {
+std::istream& Complex::readFrom(std::istream& istrm) noexcept {
   char leftBrace(0);
   double real(0.0);
   char comma(0);

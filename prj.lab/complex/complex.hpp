@@ -2,7 +2,7 @@
 #define COMPLEX_HPP
 #define _USE_MATH_DEFINES
 
-#include <iosfwd>
+#include <iostream>
 #include <sstream>
 #include <vector>
 #include <cmath>
