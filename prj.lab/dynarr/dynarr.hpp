@@ -15,15 +15,7 @@ public:
 
   ~DynArr();
 
-  DynArr& operator=(const DynArr& rhs) {
-    if (&rhs != this) {
-      Resize(rhs.Size());
-      for (int i = 0; i < rhs.Size(); ++i) {
-        *(data_ + i) = rhs[i];
-      }
-    }
-    return *this;
-  }
+  DynArr& operator=(const DynArr& rhs);
 
   [[nodiscard]] ptrdiff_t Size() const noexcept { return size_; }
 

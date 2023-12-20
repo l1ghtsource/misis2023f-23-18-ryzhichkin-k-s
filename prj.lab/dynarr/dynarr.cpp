@@ -22,6 +22,19 @@ DynArr::~DynArr() {
   capacity_ = 0;
 }
 
+DynArr& DynArr::operator=(DynArr const& rhs) {
+  if (this != &rhs) {
+    delete[] data_;
+    size_ = rhs.size_;
+    capacity_ = rhs.size_ * 2;
+    data_ = new float[capacity_] {};
+    for (int i = 0; i < rhs.size_; i += 1) {
+      data_[i] = rhs.data_[i];
+    }
+  }
+  return *this;
+}
+
 void DynArr::Resize(const ptrdiff_t size) {
   if (size <= 0) {
     throw std::invalid_argument("Negative size is not allowed in DynArr");
