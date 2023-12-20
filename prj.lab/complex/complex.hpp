@@ -2,7 +2,7 @@
 #define COMPLEX_HPP
 #define _USE_MATH_DEFINES
 
-#include <iostream>
+#include <iosfwd>
 #include <sstream>
 #include <vector>
 #include <cmath>
@@ -11,6 +11,7 @@
 
 struct Complex {
   [[nodiscard]] Complex() = default;
+  [[nodiscard]] Complex(const Complex&) = default;
   [[nodiscard]] Complex(const double real) : re(real), im(0.0) {}
   [[nodiscard]] Complex(const double real, const double imaginary) : re(real), im(imaginary) {}
   ~Complex() = default;
@@ -28,8 +29,8 @@ struct Complex {
   Complex& operator/=(const Complex& rhs);
   Complex& operator/=(const double rhs);
 
-  [[nodiscard]] std::ostream& writeTo(std::ostream& ostrm) const;
-  [[nodiscard]] std::istream& readFrom(std::istream& istrm);
+  [[nodiscard]] std::ostream& writeTo(std::ostream& ostrm) const noexcept;
+  [[nodiscard]] std::istream& readFrom(std::istream& istrm) noexcept;
 
   double re{ 0.0 };
   double im{ 0.0 };
@@ -49,9 +50,11 @@ struct Complex {
 
 [[nodiscard]] Complex operator*(const Complex& lhs, const Complex& rhs);
 [[nodiscard]] Complex operator*(const Complex& lhs, const double rhs);
+[[nodiscard]] Complex operator*(const double lhs, const Complex& rhs);
 
 [[nodiscard]] Complex operator/(const Complex& lhs, const Complex& rhs);
 [[nodiscard]] Complex operator/(const Complex& lhs, const double rhs);
+[[nodiscard]] Complex operator/(const double lhs, const Complex& rhs);
 
 inline std::ostream& operator<<(std::ostream& ostrm, const Complex& rhs) {
   return rhs.writeTo(ostrm);

@@ -42,21 +42,15 @@ Complex& Complex::operator+=(const Complex& rhs) {
 }
 
 Complex operator+(const Complex& lhs, const Complex& rhs) {
-  Complex sum(lhs);
-  sum += rhs;
-  return sum;
+  return Complex(lhs) += rhs;
 }
 
 Complex operator+(const Complex& lhs, const double rhs) {
-  Complex sum(lhs);
-  sum += rhs;
-  return sum;
+  return Complex(lhs) += Complex(rhs);
 }
 
 Complex operator+(const double lhs, const Complex& rhs) {
-  Complex sum(rhs);
-  sum += lhs;
-  return sum;
+  return Complex(lhs) += Complex(rhs);
 }
 
 Complex& Complex::operator-=(const double rhs) {
@@ -71,21 +65,15 @@ Complex& Complex::operator-=(const Complex& rhs) {
 }
 
 Complex operator-(const Complex& lhs, const Complex& rhs) {
-  Complex result(lhs);
-  result -= rhs;
-  return result;
+  return Complex(lhs) -= rhs;
 }
 
 Complex operator-(const Complex& lhs, const double rhs) {
-  Complex result(lhs);
-  result -= rhs;
-  return result;
+  return Complex(lhs) -= Complex(rhs);
 }
 
 Complex operator-(const double lhs, const Complex& rhs) {
-  Complex result(rhs);
-  result -= lhs;
-  return -result;
+  return Complex(lhs) -= Complex(rhs);
 }
 
 Complex& Complex::operator*=(const double rhs) {
@@ -103,15 +91,15 @@ Complex& Complex::operator*=(const Complex& rhs) {
 }
 
 Complex operator*(const Complex& lhs, const Complex& rhs) {
-  Complex result(lhs);
-  result *= rhs;
-  return result;
+  return Complex(lhs) *= rhs;
 }
 
 Complex operator*(const Complex& lhs, const double rhs) {
-  Complex result(lhs);
-  result *= rhs;
-  return result;
+  return Complex(lhs) *= Complex(rhs);
+}
+
+Complex operator*(const double lhs, const Complex& rhs) {
+  return Complex(lhs) *= Complex(rhs);
 }
 
 Complex& Complex::operator/=(const double rhs) {
@@ -136,16 +124,17 @@ Complex& Complex::operator/=(const Complex& rhs) {
 }
 
 Complex operator/(const Complex& lhs, const Complex& rhs) {
-  Complex result(lhs);
-  result /= rhs;
-  return result;
+  return Complex(lhs) /= rhs;
 }
 
 Complex operator/(const Complex& lhs, const double rhs) {
-  Complex result(lhs);
-  result /= rhs;
-  return result;
+  return Complex(lhs) /= Complex(rhs);
 }
+
+Complex operator/(const double lhs, const Complex& rhs) {
+  return Complex(lhs) /= Complex(rhs);
+}
+
 
 double modulus(const Complex& z) {
   return std::sqrt(z.re * z.re + z.im * z.im);
