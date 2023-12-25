@@ -1,7 +1,16 @@
-﻿#include <complex/complex.hpp>
+﻿#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <cmath>
+#include <stdexcept>
+#include <algorithm>
+
+#include <complex/complex.hpp>
 
 bool is_equal(const double& x, const double& y) {
-  return std::fabs(x - y) < 1e-4;
+  return std::abs(x - y) <= 2 * std::numeric_limits<double>::epsilon();
 }
 
 bool is_equal_complex(const Complex& lhs, const Complex& rhs) {
