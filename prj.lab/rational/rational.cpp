@@ -3,15 +3,14 @@
 Rational::Rational(const int64_t num) {
   num_ = num;
   den_ = 1;
-  simplify();
 }
 
 Rational::Rational(const int64_t num, const int64_t den) {
-  num_ = num;
-  den_ = den;
-  if (0 == den_) {
+  if (0 == den) {
     throw std::invalid_argument("Zero denumenator in Rational ctor");
   }
+  num_ = num;
+  den_ = den;
   simplify();
 }
 
@@ -117,21 +116,23 @@ std::ostream& Rational::writeTo(std::ostream& ostrm) const noexcept {
 
 std::istream& Rational::readFrom(std::istream& istrm) noexcept {
   int64_t numerator(0);
+  char slash_(0);
   int64_t denumerator(1);
-  char slash(0);
-
-  istrm >> numerator >> slash >> denumerator;
-
-  if (istrm.good()) {
-    if (Rational::slash == slash) {
-      num_ = numerator;
-      den_ = denumerator;
-      simplify();
+  istrm >> numerator;
+  istrm.get(slash_);
+  int64_t tmp = istrm.peek();
+  istrm >> denumerator;
+  if (!istrm || tmp > '9' || tmp < '0') {
+    istrm.setstate(std::ios_base::failbit);
+    return istrm;
+  }
+  if (istrm.good() || istrm.eof()) {
+    if (slash == slash_ && denumerator > 0) {
+      *this = Rational(numerator, denumerator);
     }
     else {
       istrm.setstate(std::ios_base::failbit);
     }
   }
-
   return istrm;
 }

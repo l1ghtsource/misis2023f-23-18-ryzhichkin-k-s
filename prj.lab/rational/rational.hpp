@@ -49,7 +49,9 @@ private:
   int64_t num_ = 0;
   int64_t den_ = 1;
 
-  int64_t gcd(int a, int b) {
+  int64_t gcd(int64_t lhs, int64_t rhs) {
+    int64_t a = std::max(std::abs(lhs), std::abs(rhs));
+    int64_t b = std::min(std::abs(lhs), std::abs(rhs));
     return b ? gcd(b, a % b) : a;
   }
 
