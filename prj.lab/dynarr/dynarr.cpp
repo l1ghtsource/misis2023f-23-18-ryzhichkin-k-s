@@ -1,5 +1,9 @@
 #include <dynarr/dynarr.hpp>
 
+
+#include <iosfwd>
+#include <sstream>
+
 DynArr::DynArr(const DynArr& rhs)
   : size_(rhs.size_), capacity_(rhs.size_) {
   data_ = new float[rhs.size_];
