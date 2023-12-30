@@ -52,7 +52,7 @@ Rational& Rational::operator*=(const int64_t rhs) noexcept {
 }
 
 Rational& Rational::operator/=(const Rational& rhs) {
-  if (rhs.den_ == 0) {
+  if (rhs.num_ == 0) {
     throw std::invalid_argument("Division by zero");
   }
   num_ = num_ * rhs.den_;
