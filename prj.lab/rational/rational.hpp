@@ -5,6 +5,7 @@
 
 #include <iosfwd>
 #include <sstream>
+#include <cstdint>
 
 class Rational {
 public:
