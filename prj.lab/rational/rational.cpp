@@ -1,5 +1,9 @@
 #include <rational/rational.hpp>
 
+#include <iosfwd>
+#include <sstream>
+#include <cstdint>
+
 Rational::Rational(const int64_t num) {
   num_ = num;
   den_ = 1;
